@@ -1,4 +1,17 @@
-<div *ngIf="visNetworkData" style="width: 800px;height: 600px">
+
+<tui-root>
+
+
+  <button
+    tuiButton
+    type="button"
+    class="tui-space_right-3 tui-space_bottom-3"
+    appearance="outline"
+  >
+    outline
+  </button>
+
+  <div *ngIf="visNetworkData" style="width: 800px;height: 600px">
   <div
     style="width: 800px;height: 600px"
     [visNetwork]="visNetwork"
@@ -9,3 +22,5 @@
 
   </div>
 </div>
+
+</tui-root>
