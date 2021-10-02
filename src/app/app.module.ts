@@ -1,6 +1,14 @@
 import { NgDompurifySanitizer } from '@tinkoff/ng-dompurify';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {TuiRootModule, TuiDialogModule, TuiNotificationsModule, TUI_SANITIZER, TuiButtonModule} from '@taiga-ui/core';
+import {
+  TuiRootModule,
+  TuiDialogModule,
+  TuiNotificationsModule,
+  TUI_SANITIZER,
+  TuiButtonModule,
+  TuiThemeNightModule,
+  TuiModeModule
+} from '@taiga-ui/core';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -8,10 +16,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {VisModule} from 'ngx-vis';
 import {TuiFocusableModule, TuiPortalHostModule} from '@taiga-ui/cdk';
+import {TuiDocNavigationModule} from '@taiga-ui/addon-doc';
+import {TuiIslandModule, TuiToggleModule} from '@taiga-ui/kit';
+import {FormsModule} from '@angular/forms';
+import { LabFooterComponent } from './components/lab-footer/lab-footer.component';
+import { LabHeaderComponent } from './components/lab-header/lab-header.component';
+import { LabAboutComponent } from './components/lab-about/lab-about.component';
+import { LabLatestComponent } from './components/lab-latest/lab-latest.component';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LabFooterComponent,
+    LabHeaderComponent,
+    LabAboutComponent,
+    LabLatestComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +43,16 @@ import {TuiFocusableModule, TuiPortalHostModule} from '@taiga-ui/cdk';
     TuiNotificationsModule,
     TuiPortalHostModule,
     TuiButtonModule,
-    TuiFocusableModule
+    TuiFocusableModule,
+    TuiDocNavigationModule,
+    TuiThemeNightModule,
+    TuiModeModule,
+    TuiThemeNightModule,
+    TuiRootModule,
+    TuiToggleModule,
+    FormsModule,
+    TuiIslandModule,
+    FlexLayoutModule
   ],
   providers: [{provide: TUI_SANITIZER, useClass: NgDompurifySanitizer}],
   bootstrap: [AppComponent]

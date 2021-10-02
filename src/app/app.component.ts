@@ -1,13 +1,15 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Inject, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
 import {Data, DataSet, VisNetworkService, Node, Edge} from 'ngx-vis';
 import {Options} from 'vis-network';
+import {DOCUMENT} from '@angular/common';
+import {AbstractTuiThemeSwitcher} from '@taiga-ui/cdk';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnInit, OnDestroy  {
   title = 'vis';
   public visNetwork = 'networkId1';
   public visNetworkData: Data ;
@@ -15,7 +17,9 @@ export class AppComponent implements OnInit, OnDestroy {
   public edges: DataSet<Edge> ;
   public visNetworkOptions: Options;
 
-  public constructor(private visNetworkService: VisNetworkService) {}
+
+  public constructor(private visNetworkService: VisNetworkService) {
+  }
 
   public networkInitialized(): void {
     // now we can use the service to register on events
