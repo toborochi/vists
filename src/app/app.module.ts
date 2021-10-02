@@ -7,7 +7,7 @@ import {
   TUI_SANITIZER,
   TuiButtonModule,
   TuiThemeNightModule,
-  TuiModeModule
+  TuiModeModule, TuiSvgModule
 } from '@taiga-ui/core';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,7 +17,7 @@ import { AppComponent } from './app.component';
 import {VisModule} from 'ngx-vis';
 import {TuiFocusableModule, TuiPortalHostModule} from '@taiga-ui/cdk';
 import {TuiDocNavigationModule} from '@taiga-ui/addon-doc';
-import {TuiIslandModule, TuiToggleModule} from '@taiga-ui/kit';
+import {TuiIslandModule, TuiMarkerIconModule, TuiToggleModule} from '@taiga-ui/kit';
 import {FormsModule} from '@angular/forms';
 import { LabFooterComponent } from './components/lab-footer/lab-footer.component';
 import { LabHeaderComponent } from './components/lab-header/lab-header.component';
@@ -52,7 +52,9 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     TuiToggleModule,
     FormsModule,
     TuiIslandModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    TuiMarkerIconModule,
+    TuiSvgModule
   ],
   providers: [{provide: TUI_SANITIZER, useClass: NgDompurifySanitizer}],
   bootstrap: [AppComponent]
