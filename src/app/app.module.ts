@@ -24,6 +24,7 @@ import { LabHeaderComponent } from './components/lab-header/lab-header.component
 import { LabAboutComponent } from './components/lab-about/lab-about.component';
 import { LabLatestComponent } from './components/lab-latest/lab-latest.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     TuiIslandModule,
     FlexLayoutModule,
     TuiMarkerIconModule,
-    TuiSvgModule
+    TuiSvgModule,
+    FontAwesomeModule
   ],
   providers: [{provide: TUI_SANITIZER, useClass: NgDompurifySanitizer}],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faDatabase,faHeart } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-lab-about',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LabAboutComponent implements OnInit {
 
-  constructor() { }
+  faCoffee = faDatabase;
+  faHeart1 = faHeart;
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
-
 }
