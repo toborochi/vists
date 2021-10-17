@@ -1,46 +1,16 @@
-<div fxLayout="column" fxLayoutAlign="center stretch" style="background-color: #F2F2F2;" >
-   <h1 style=" text-align: center; padding-top: 32px">
-       Acerca de
-   </h1>
-<div class="container" fxLayout="row" fxLayoutAlign="space-around stretch" fxLayout.lt-sm="column" fxLayoutGap="24px">
+<div fxLayout="column" fxLayoutAlign="center stretch" style="background-color: #F2F2F2;">
+  <h1 style=" text-align: center; padding-top: 32px">
+    Acerca de
+  </h1>
+  <div class="container" fxLayout="row" fxLayoutAlign="space-around stretch" fxLayout.lt-sm="column" fxLayoutGap="8px">
 
     <div class="tui-col_md-12" style="align-items: stretch;">
-        <tui-island style="align-items: stretch; height: calc(100% - 32px);">
-            <div fxLayout="row" fxLayoutAlign="start center" style="height: 100%">
-                <div class="square">
-                    <fa-icon [icon]="faHeart1" class="icon-position"></fa-icon>
-                </div>
-                <div fxLayout="column" fxLayoutAlign="start start" class="tui-space_left-4">
-                    <p style="font-size: 4vh; font-weight: bold; margin-top: 1vh; margin-bottom: 1vh">Objetivos</p>
-                    <p fxHide.lt-md="" style="width: 100%" class="p-hide">
-                        Ofrecer datos de manera sencilla y rapida. De la comunidad para la comunidad. Ofrecer datos de
-                        manera sencilla y rapida. De la comunidad para la comunidad. Ofrecer datos de manera sencilla y
-                        rapida. De la comunidad para la comunidad.
-                    </p>
-                </div>
-            </div>
-
-        </tui-island>
+      <app-about-card [icon]="'assets/find-partner.svg'"  [content]="'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed semper sem. Praesent id purus a sapien sodales egestas. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.'" [title]="'Objetivos'"></app-about-card>
     </div>
 
     <div class="tui-col_md-12" style="align-items: stretch;">
-        <tui-island style="align-items: stretch;  height: calc(100% - 32px);">
-            <div fxLayout="row" fxLayoutAlign="start center" style="height: 100%">
-                <div class="square">
-                    <fa-icon [icon]="faCoffee" class="icon-position"></fa-icon>
-                </div>
-                <div fxLayout="column" fxLayoutAlign="start start" class="tui-space_left-4">
-                    <p style="font-size: 4vh; font-weight: bold; margin-top: 1vh; margin-bottom: 1vh;">Fuentes</p>
-                    <p fxHide.lt-md="" style="width: 100%" class="p-hide">
-                        Fuentes de información generadas por la comunidad de manera transparente. Fuentes de información
-                        generadas por la comunidad de manera transparente. Fuentes de información generadas por la
-                        comunidad de manera transparente.
-                    </p>
-                </div>
-            </div>
-
-        </tui-island>
+      <app-about-card [icon]="'assets/database.svg'" [content]="'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed semper sem. Praesent id purus a sapien sodales egestas. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.'" [title]="'Fuentes'"></app-about-card>
     </div>
 
-</div>
+  </div>
 </div>

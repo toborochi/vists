@@ -1,0 +1,13 @@
+<div *ngIf="visNetworkData" style="width: 100%;height: calc(100vh - 71px)">
+  <div
+    style="width: 100%;height: 100%"
+    [visNetwork]="visNetwork"
+    [visNetworkData]="visNetworkData"
+    [visNetworkOptions]="visNetworkOptions"
+    (initialized)="networkInitialized()"
+  >
+
+  </div>
+</div>
+<app-lab-about></app-lab-about>
+<app-lab-latest></app-lab-latest>

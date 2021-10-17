@@ -1,0 +1,19 @@
+<tui-island style="align-items: stretch; height: calc(100% - 32px);">
+  <div fxLayout="row" fxLayoutAlign="start center" style="height: 100%">
+    <div class="square">
+      <img class="icon-position" [src]="icon" style="width: 66%; height: 66%; fill: whitesmoke"/>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="start start" class="tui-space_left-4" style="width: 100%">
+      <div fxLayout="row" fxLayoutAlign="space-between center" style="width: 100%" >
+        <p style="font-weight: bold; margin-top: 1vh; margin-bottom: 1vh" class="parag">{{title}}</p>
+
+        <img src="assets/previous-arrow.svg" style="height: 20px; padding-right: 16px"/>
+      </div>
+
+      <p fxHide.lt-md="" style="width: 100%" class="p-hide">
+        {{content}}
+      </p>
+    </div>
+  </div>
+
+</tui-island>

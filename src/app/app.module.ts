@@ -7,7 +7,7 @@ import {
   TUI_SANITIZER,
   TuiButtonModule,
   TuiThemeNightModule,
-  TuiModeModule, TuiSvgModule
+  TuiModeModule, TuiSvgModule, TuiColorModule
 } from '@taiga-ui/core';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,7 +17,7 @@ import { AppComponent } from './app.component';
 import {VisModule} from 'ngx-vis';
 import {TuiFocusableModule, TuiPortalHostModule} from '@taiga-ui/cdk';
 import {TuiDocNavigationModule} from '@taiga-ui/addon-doc';
-import {TuiIslandModule, TuiMarkerIconModule, TuiToggleModule} from '@taiga-ui/kit';
+import {TuiIslandModule, TuiMarkerIconModule, TuiTabsModule, TuiToggleModule} from '@taiga-ui/kit';
 import {FormsModule} from '@angular/forms';
 import { LabFooterComponent } from './components/lab-footer/lab-footer.component';
 import { LabHeaderComponent } from './components/lab-header/lab-header.component';
@@ -25,6 +25,11 @@ import { LabAboutComponent } from './components/lab-about/lab-about.component';
 import { LabLatestComponent } from './components/lab-latest/lab-latest.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { LatestCardComponent } from './tag-components/latest-card/latest-card.component';
+import { AboutCardComponent } from './tag-components/about-card/about-card.component';
+import { PageAboutNodeComponent } from './pages/page-about-node/page-about-node.component';
+import { PageHomeComponent } from './pages/page-home/page-home.component';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -32,9 +37,14 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     LabFooterComponent,
     LabHeaderComponent,
     LabAboutComponent,
-    LabLatestComponent
+    LabLatestComponent,
+    LatestCardComponent,
+    AboutCardComponent,
+    PageAboutNodeComponent,
+    PageHomeComponent
   ],
   imports: [
+    RouterModule,
     BrowserModule,
     AppRoutingModule,
     VisModule,
@@ -56,7 +66,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FlexLayoutModule,
     TuiMarkerIconModule,
     TuiSvgModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    TuiTabsModule,
+    TuiColorModule
   ],
   providers: [{provide: TUI_SANITIZER, useClass: NgDompurifySanitizer}],
   bootstrap: [AppComponent]

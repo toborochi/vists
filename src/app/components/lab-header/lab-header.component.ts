@@ -2,6 +2,7 @@ import {ChangeDetectionStrategy, Component, Inject, OnInit, ViewEncapsulation} f
 import {AbstractTuiThemeSwitcher} from '@taiga-ui/cdk';
 import {VisNetworkService} from 'ngx-vis';
 import {DOCUMENT} from '@angular/common';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-lab-header',
@@ -14,12 +15,16 @@ export class LabHeaderComponent extends AbstractTuiThemeSwitcher  implements OnI
 
   public enabled = false;
 
-  public constructor(@Inject(DOCUMENT) documentRef: any) {
+  public constructor(private router: Router, @Inject(DOCUMENT) documentRef: any) {
     super(documentRef as Document);
 
   }
 
   ngOnInit(): void {
+  }
+
+  goToHome(): void {
+    this.router.navigateByUrl('/').then(r => {});
   }
 
 }
