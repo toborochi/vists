@@ -1,4 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css");
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -6,4 +9,10 @@
   border-bottom: 1px solid var(--tui-base-04);
   padding-left: 20px;
   background-color: #262626;
+  height: 71px;
+}
+
+
+.the-icons {
+  font-size: 25px;
 }

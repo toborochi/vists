@@ -9,17 +9,20 @@
   >
 
   </div>
-  <div style="
+    <div style="
     top: 0;
     right: 0;
-    padding: 16px;
-    position: absolute;
-    color: green" fxLayout="column" fxLayoutAlign="space-between center" >
-    <button >Hola</button>
-    <button >Hola</button>
-    <button >Hola</button>
-  </div>
+    margin: 16px;
+    position: absolute"  class="btn-group">
+      <button (click)="zoomIn()" ><span style="padding: 8px" class="glyphicon glyphicon-plus"></span></button>
+      <button (click)="zoomOut()"><span style="padding: 8px" class="glyphicon glyphicon-minus"></span></button>
+      <button ><span style="padding: 8px" class="glyphicon glyphicon-search"></span></button>
+    </div>
 
 </div>
+
+
+
+
 <app-lab-about></app-lab-about>
 <app-lab-latest></app-lab-latest>

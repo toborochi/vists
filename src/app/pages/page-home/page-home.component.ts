@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Data, DataSet, Edge, Node, VisNetworkService} from 'ngx-vis';
-import {Options} from 'vis-network';
+import {MoveToOptions, Options} from 'vis-network';
 import {Router} from '@angular/router';
 
 @Component({
@@ -11,6 +11,7 @@ import {Router} from '@angular/router';
 export class PageHomeComponent implements  OnInit, OnDestroy {
 
   title = 'vis';
+  scaleFactor = 0.1;
 public visNetwork = 'networkId1';
 public visNetworkData: Data ;
 public nodes: DataSet<Node> ;
@@ -54,6 +55,30 @@ public networkInitialized(): void {
         }
       }
     };
+  }
+
+  public zoomIn(): void{
+    console.log(this.visNetworkService.getScale(this.visNetwork));
+    const op: MoveToOptions = {
+      scale: this.visNetworkService.getScale(this.visNetwork) + this.scaleFactor,
+      animation: {
+        duration: 200,
+        easingFunction: 'easeOutQuad'
+      }
+    };
+    this.visNetworkService.moveTo(this.visNetwork, op);
+  }
+
+  public zoomOut(): void{
+    console.log(this.visNetworkService.getScale(this.visNetwork));
+    const op: MoveToOptions = {
+      scale: this.visNetworkService.getScale(this.visNetwork) - this.scaleFactor,
+      animation: {
+        duration: 200,
+        easingFunction: 'easeOutQuad'
+      }
+    };
+    this.visNetworkService.moveTo(this.visNetwork, op);
   }
 
 public ngOnDestroy(): void {
