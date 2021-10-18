@@ -28,7 +28,10 @@ public networkInitialized(): void {
 
     // open your console/dev tools to see the click params
     this.visNetworkService.click.subscribe((eventData: any[]) => {
-      if (eventData[0] === this.visNetwork) {
+
+      const d = eventData[1].nodes;
+      if (eventData[0] === this.visNetwork && d.length > 0) {
+        console.log(this.nodes.get(d));
         this.router.navigateByUrl('/about').then(r => {});
       }
     });
