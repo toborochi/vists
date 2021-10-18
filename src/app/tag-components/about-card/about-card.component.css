@@ -10,6 +10,7 @@
   background-color: #262626;
   flex-shrink: 0;
   display: flex;
+  border-radius: 8px;
 }
 
 .square:after {

@@ -1,0 +1,9 @@
+.p-hide{
+  line-height: 1.5em;
+  max-height: 3em;       /* height is 2x line-height, so two lines will display */
+  overflow: hidden;  /* prevents extra lines from being visible */
+  margin: 0;
+  color: white;
+  padding-left: 16px;
+  font-weight: bold;
+}

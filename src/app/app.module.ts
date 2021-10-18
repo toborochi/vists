@@ -17,7 +17,7 @@ import { AppComponent } from './app.component';
 import {VisModule} from 'ngx-vis';
 import {TuiFocusableModule, TuiPortalHostModule} from '@taiga-ui/cdk';
 import {TuiDocNavigationModule} from '@taiga-ui/addon-doc';
-import {TuiIslandModule, TuiMarkerIconModule, TuiTabsModule, TuiToggleModule} from '@taiga-ui/kit';
+import {TuiAvatarModule, TuiIslandModule, TuiMarkerIconModule, TuiTabsModule, TuiToggleModule} from '@taiga-ui/kit';
 import {FormsModule} from '@angular/forms';
 import { LabFooterComponent } from './components/lab-footer/lab-footer.component';
 import { LabHeaderComponent } from './components/lab-header/lab-header.component';
@@ -43,33 +43,34 @@ import {RouterModule} from '@angular/router';
     PageAboutNodeComponent,
     PageHomeComponent
   ],
-  imports: [
-    RouterModule,
-    BrowserModule,
-    AppRoutingModule,
-    VisModule,
-    TuiRootModule,
-    BrowserAnimationsModule,
-    TuiDialogModule,
-    TuiNotificationsModule,
-    TuiPortalHostModule,
-    TuiButtonModule,
-    TuiFocusableModule,
-    TuiDocNavigationModule,
-    TuiThemeNightModule,
-    TuiModeModule,
-    TuiThemeNightModule,
-    TuiRootModule,
-    TuiToggleModule,
-    FormsModule,
-    TuiIslandModule,
-    FlexLayoutModule,
-    TuiMarkerIconModule,
-    TuiSvgModule,
-    FontAwesomeModule,
-    TuiTabsModule,
-    TuiColorModule
-  ],
+    imports: [
+        RouterModule,
+        BrowserModule,
+        AppRoutingModule,
+        VisModule,
+        TuiRootModule,
+        BrowserAnimationsModule,
+        TuiDialogModule,
+        TuiNotificationsModule,
+        TuiPortalHostModule,
+        TuiButtonModule,
+        TuiFocusableModule,
+        TuiDocNavigationModule,
+        TuiThemeNightModule,
+        TuiModeModule,
+        TuiThemeNightModule,
+        TuiRootModule,
+        TuiToggleModule,
+        FormsModule,
+        TuiIslandModule,
+        FlexLayoutModule,
+        TuiMarkerIconModule,
+        TuiSvgModule,
+        FontAwesomeModule,
+        TuiTabsModule,
+        TuiColorModule,
+        TuiAvatarModule
+    ],
   providers: [{provide: TUI_SANITIZER, useClass: NgDompurifySanitizer}],
   bootstrap: [AppComponent]
 })

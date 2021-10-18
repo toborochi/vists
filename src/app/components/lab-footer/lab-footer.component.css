@@ -1,5 +1,8 @@
 .lab-footer{
   width: 100% !important;
-  height: 200px !important;
   background-color: #262626;
+}
+
+.about{
+  color: white;
 }

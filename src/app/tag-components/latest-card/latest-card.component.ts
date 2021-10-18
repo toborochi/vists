@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-latest-card',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./latest-card.component.css']
 })
 export class LatestCardComponent implements OnInit {
+
+  @Input()
+  text: string;
 
   constructor() { }
 

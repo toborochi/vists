@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LabFooterComponent implements OnInit {
 
+  date: number = new Date().getFullYear();
+
   constructor() { }
 
   ngOnInit(): void {
