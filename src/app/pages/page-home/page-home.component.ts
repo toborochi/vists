@@ -11,7 +11,7 @@ import {Router} from '@angular/router';
 export class PageHomeComponent implements  OnInit, OnDestroy {
 
   title = 'vis';
-  scaleFactor = 0.1;
+  scaleFactor = 0.2;
 public visNetwork = 'networkId1';
 public visNetworkData: Data ;
 public nodes: DataSet<Node> ;
@@ -79,6 +79,15 @@ public networkInitialized(): void {
       }
     };
     this.visNetworkService.moveTo(this.visNetwork, op);
+  }
+
+  public fit():void{
+    this.visNetworkService.fit(this.visNetwork,{
+      animation: {
+        duration: 250,
+        easingFunction: 'easeOutQuad'
+      }
+    });
   }
 
 public ngOnDestroy(): void {
