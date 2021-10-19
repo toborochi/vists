@@ -5,7 +5,7 @@ import {PageHomeComponent} from './pages/page-home/page-home.component';
 
 const routes: Routes = [
   {
-    path: 'about',
+    path: 'about/:id',
     component: PageAboutNodeComponent
   },
   { path: '', component: PageHomeComponent},
