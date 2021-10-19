@@ -266,6 +266,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 
+@nicky-lenaers/ngx-scroll-to
+MIT
+
 @taiga-ui/addon-doc
 Apache-2.0
 
