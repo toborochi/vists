@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Data, DataSet, Edge, Node, VisNetworkService} from 'ngx-vis';
 import {MoveToOptions, Options} from 'vis-network';
 import {Router} from '@angular/router';
+import {ScrollToConfigOptions, ScrollToService} from '@nicky-lenaers/ngx-scroll-to';
 
 @Component({
   selector: 'app-page-home',
@@ -20,7 +21,8 @@ public visNetworkOptions: Options;
 
 
 public constructor(private visNetworkService: VisNetworkService,
-                   private router: Router) {
+                   private router: Router,
+                   private scrollToService: ScrollToService,) {
   }
 
 public networkInitialized(): void {
@@ -88,6 +90,17 @@ public networkInitialized(): void {
         easingFunction: 'easeOutQuad'
       }
     });
+  }
+
+  public scrollDown():void{
+    //console.log('GO TO');
+    const config: ScrollToConfigOptions = {
+      target: `destination_about`,
+      duration: 250,
+      easing: "easeInOutQuint"
+    };
+    //console.log(config.target);
+    this.scrollToService.scrollTo(config);
   }
 
 public ngOnDestroy(): void {

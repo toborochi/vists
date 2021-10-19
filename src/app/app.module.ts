@@ -30,6 +30,7 @@ import { AboutCardComponent } from './tag-components/about-card/about-card.compo
 import { PageAboutNodeComponent } from './pages/page-about-node/page-about-node.component';
 import { PageHomeComponent } from './pages/page-home/page-home.component';
 import {RouterModule} from '@angular/router';
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import {RouterModule} from '@angular/router';
         FontAwesomeModule,
         TuiTabsModule,
         TuiColorModule,
-        TuiAvatarModule
+        TuiAvatarModule,
+        ScrollToModule.forRoot()
     ],
   providers: [{provide: TUI_SANITIZER, useClass: NgDompurifySanitizer}],
   bootstrap: [AppComponent]
