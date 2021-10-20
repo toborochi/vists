@@ -7,7 +7,7 @@
       <div fxLayout="row" fxLayoutAlign="space-between center" style="width: 100%" >
         <p style="font-weight: bold; margin-top: 1vh; margin-bottom: 1vh" class="parag">{{title}}</p>
 
-        <img src="assets/previous-arrow.svg" style="height: 20px; padding-right: 16px"/>
+        <img (click)="goToRoute()" class="slide-right" src="assets/previous-arrow.svg" style="height: 20px; padding-right: 16px"/>
       </div>
 
       <p fxHide.lt-md="" style="width: 100%" class="p-hide">

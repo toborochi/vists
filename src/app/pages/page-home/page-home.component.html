@@ -1,7 +1,8 @@
-<div *ngIf="visNetworkData" style="width: 100%;height: calc(100vh - 71px);position:relative;">
+<div style="width: 100%;height: calc(100vh - 71px);position:relative;">
 
-  <div style="width: 100%;height: 100%" [visNetwork]="visNetwork" [visNetworkData]="visNetworkData"
-    [visNetworkOptions]="visNetworkOptions" (initialized)="networkInitialized()">
+
+  <div *ngIf="visNetworkData" style="width: 100%;height: 100%" [visNetwork]="visNetwork"
+    [visNetworkData]="visNetworkData" [visNetworkOptions]="visNetworkOptions" (initialized)="networkInitialized()">
 
   </div>
   <div style="
@@ -20,12 +21,19 @@
       <span class="mouse" style="
       background-color: white;
       border-radius: 64px;">
-        <span >
+        <span>
         </span>
       </span>
     </a>
-  
+
   </span>
+
+  <div *tuiSidebar="open; direction: 'right'">
+    <tui-accordion [rounded]="false">
+        <button (click)="toggle(false)"><span style="padding: 8px" class="glyphicon glyphicon-remove"></span></button>
+        
+    </tui-accordion>
+  </div>
 
 </div>
 

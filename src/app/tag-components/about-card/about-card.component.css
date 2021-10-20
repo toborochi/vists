@@ -49,3 +49,19 @@
   svg{
     fill: white !important;
   }
+
+
+  .slide-right {
+    animation: slide-right 1.0s cubic-bezier(0.455, 0.030, 0.515, 0.955) infinite alternate both;
+    cursor: pointer;
+  }
+
+
+@keyframes slide-right {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(8px);
+  }
+}

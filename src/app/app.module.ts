@@ -31,7 +31,9 @@ import { PageAboutNodeComponent } from './pages/page-about-node/page-about-node.
 import { PageHomeComponent } from './pages/page-home/page-home.component';
 import {RouterModule} from '@angular/router';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
-
+import { HttpClientModule } from '@angular/common/http';
+import {TuiSidebarModule} from '@taiga-ui/addon-mobile';
+	import {TuiActiveZoneModule} from '@taiga-ui/cdk';
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,7 +73,10 @@ import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
         TuiTabsModule,
         TuiColorModule,
         TuiAvatarModule,
-        ScrollToModule.forRoot()
+        ScrollToModule.forRoot(),
+        HttpClientModule,
+        TuiSidebarModule,
+        TuiActiveZoneModule
     ],
   providers: [{provide: TUI_SANITIZER, useClass: NgDompurifySanitizer}],
   bootstrap: [AppComponent]

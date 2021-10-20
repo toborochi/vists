@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {faDatabase, faHeart} from '@fortawesome/free-solid-svg-icons';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-about-card',
   templateUrl: './about-card.component.html',
@@ -18,11 +18,20 @@ export class AboutCardComponent implements OnInit {
   icon: string;
 
 
+  @Input()
+  routeUrl: string;
 
 
-  constructor() { }
+
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  goToRoute() : void{
+    this.router
+          .navigateByUrl(this.routeUrl)
+          .then((r) => {});
   }
 
 }
