@@ -27,4 +27,9 @@ export class LabHeaderComponent extends AbstractTuiThemeSwitcher  implements OnI
     this.router.navigateByUrl('/').then(r => {});
   }
 
+  contribute():void{
+    console.log('x');
+    this.router.navigateByUrl('/contribuir').then(r => {});
+  }
+
 }

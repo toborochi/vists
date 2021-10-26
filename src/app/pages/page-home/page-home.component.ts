@@ -1,17 +1,22 @@
 import { GraphService } from './../../services/graph.service';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit ,ChangeDetectionStrategy} from '@angular/core';
 import { Data, DataSet, Edge, Node, VisNetworkService } from 'ngx-vis';
+import { DataView } from 'vis-data';
+
 import { MoveToOptions, Options } from 'vis-network';
 import { Router } from '@angular/router';
 import {
   ScrollToConfigOptions,
   ScrollToService,
 } from '@nicky-lenaers/ngx-scroll-to';
+import { TuiDialogContext, TuiDialogService } from '@taiga-ui/core';
+import { PolymorpheusContent } from '@tinkoff/ng-polymorpheus';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-page-home',
   templateUrl: './page-home.component.html',
-  styleUrls: ['./page-home.component.css'],
+  styleUrls: ['./page-home.component.css']
 })
 export class PageHomeComponent implements OnInit, OnDestroy {
   title = 'vis';
@@ -21,13 +26,25 @@ export class PageHomeComponent implements OnInit, OnDestroy {
   public nodes: DataSet<Node>;
   public edges: DataSet<Edge>;
   public visNetworkOptions: Options;
+  public view: DataView<Node>;
+  public selectedNode: any;
+  items = [
+    'Luke Skywalker',
+    'Leia Organa Solo',
+    'Darth Vader',
+    'Han Solo',
+    'Obi-Wan Kenobi',
+    'Yoda',
+  ];
+  testValue = new FormControl(this.items[0]);
   open = false;
 
   public constructor(
     private visNetworkService: VisNetworkService,
     private router: Router,
     private scrollToService: ScrollToService,
-    private graphService: GraphService
+    private graphService: GraphService,
+    @Inject(TuiDialogService) private readonly dialogService: TuiDialogService
   ) {}
 
   public networkInitialized(): void {
@@ -39,11 +56,8 @@ export class PageHomeComponent implements OnInit, OnDestroy {
       const d = eventData[1].nodes;
       if (eventData[0] === this.visNetwork && d.length > 0) {
         console.log(this.nodes.get(d));
+        this.selectedNode = this.nodes.get(d);
         this.toggle(true);
-        /*
-        this.router
-          .navigateByUrl(`/about/${this.nodes.get(d)[0].id}`)
-          .then((r) => {});*/
       }
     });
   }
@@ -55,6 +69,12 @@ export class PageHomeComponent implements OnInit, OnDestroy {
       this.nodes = new DataSet<Node>(data.nodes);
       this.edges = new DataSet<Edge>(data.edges);
       this.visNetworkData = { nodes: this.nodes, edges: this.edges };
+
+      this.view = new DataView(this.nodes, {
+        filter: function (item) {
+          return item.group == 'Individuo';
+        },
+      });
 
       this.visNetworkOptions = {
         nodes: {
@@ -131,5 +151,20 @@ export class PageHomeComponent implements OnInit, OnDestroy {
 
   toggle(open: boolean) {
     this.open = open;
+  }
+
+  filter() {
+    console.log(this.view.get());
+
+    this.nodes.update(this.view.get());
+
+    this.visNetworkService.setData(this.visNetwork, {
+      nodes: this.view.get(),
+      edges: this.edges,
+    });
+  }
+
+  showDialog(content: PolymorpheusContent<TuiDialogContext>) {
+    this.dialogService.open(content).subscribe();
   }
 }

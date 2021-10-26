@@ -1,13 +1,13 @@
 <header class="header">
-  <h1>
-    <img
-      style="cursor: pointer"
-      src="assets/eda.png"
-      alt="taiga ui logo"
-      width="224"
-      (click)="goToHome()"
-    />
-  </h1>
+  <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="24px">
+    <img style="cursor: pointer" src="assets/eda.png" alt="taiga ui logo" width="224" (click)="goToHome()" />
+    <!--
+    <div fxHide.lt-sm fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="24px">
+      <a href="" class="tui-text_h6 button-header">Contribuir</a>
+      <a href="" class="tui-text_h6 button-header">Acerca</a>
+    </div>
+    -->
+  </div>
 
   <!--
   <tui-toggle
@@ -15,7 +15,6 @@
     size="l"
     [ngModel]="enabled"
   ></tui-toggle>-->
-
+  <button (click)="contribute()" class="button-58"  fxHide.lt-sm  style="height: 100%; width: 96px;">Contribuir</button>
+  <button fxHide.gt-xs tuiIconButton type="button" appearance="flat" icon="tuiIconMoreHorLarge"></button>
 </header>
-
-

@@ -13,7 +13,8 @@
     <button (click)="zoomIn()"><span style="padding: 8px" class="glyphicon glyphicon-plus"></span></button>
     <button (click)="zoomOut()"><span style="padding: 8px" class="glyphicon glyphicon-minus"></span></button>
     <button (click)="fit()"><span style="padding: 8px" class="glyphicon glyphicon-eye-open"></span></button>
-    <button><span style="padding: 8px" class="glyphicon glyphicon-search"></span></button>
+    <button (click)="showDialog(template2)"><span style="padding: 8px"
+        class="glyphicon glyphicon-search"></span></button>
   </div>
 
   <span class="scroll-btn">
@@ -30,12 +31,43 @@
 
   <div *tuiSidebar="open; direction: 'right'">
     <tui-accordion [rounded]="false">
-        <button (click)="toggle(false)"><span style="padding: 8px" class="glyphicon glyphicon-remove"></span></button>
-        
+      <div style="padding: 16px;">
+        <button tuiIconButton type="button" appearance="secondary" icon="tuiIconRemoveLarge"
+          (click)="toggle(false)"></button>
+
+        <div fxLayout="column" fxLayoutAlign="start start">
+          <h3>Nombre Proyecto</h3>
+          <p class="tui-text_h5" style="margin: 0;">{{this.selectedNode[0].label}}</p>
+          <h3>URLs</h3>
+        </div>
+      </div>
     </tui-accordion>
   </div>
 
 </div>
+
+<ng-template #template2 let-observer>
+
+  <p class="b-form">
+    <tui-select [formControl]="testValue">
+      Escoger categoria
+      <tui-data-list-wrapper *tuiDataList [items]="items"></tui-data-list-wrapper>
+    </tui-select>
+  </p>
+
+  <p class="b-form">
+    <tui-select [formControl]="testValue">
+      Tipo Nodo
+      <tui-data-list-wrapper *tuiDataList [items]="items"></tui-data-list-wrapper>
+    </tui-select>
+  </p>
+
+  <button style="width: 100% !important;" tuiButton type="button" class="tui-space_right-3 tui-space_bottom-3"
+    [icon]="icon" (click)="filter()">
+    Filtrar
+  </button>
+
+</ng-template>
 
 
 

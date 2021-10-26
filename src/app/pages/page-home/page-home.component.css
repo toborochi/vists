@@ -145,3 +145,7 @@
   }
 }
 
+::ng-deep .t-wrapper{
+  width: 320px !important;
+}
+
