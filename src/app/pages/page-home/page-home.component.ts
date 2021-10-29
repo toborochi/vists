@@ -29,12 +29,7 @@ export class PageHomeComponent implements OnInit, OnDestroy {
   public view: DataView<Node>;
   public selectedNode: any;
   items = [
-    'Luke Skywalker',
-    'Leia Organa Solo',
-    'Darth Vader',
-    'Han Solo',
-    'Obi-Wan Kenobi',
-    'Yoda',
+    'Individuo','Organizacion',
   ];
   testValue = new FormControl(this.items[0]);
   open = false;

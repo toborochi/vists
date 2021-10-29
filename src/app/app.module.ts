@@ -28,7 +28,7 @@ import {
   TuiSelectModule,
   TuiDataListWrapperModule,
 } from '@taiga-ui/kit';
-import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LabFooterComponent } from './components/lab-footer/lab-footer.component';
 import { LabHeaderComponent } from './components/lab-header/lab-header.component';
 import { LabAboutComponent } from './components/lab-about/lab-about.component';
@@ -45,7 +45,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { TuiSidebarModule } from '@taiga-ui/addon-mobile';
 import { TuiActiveZoneModule } from '@taiga-ui/cdk';
 import { TuiDataListModule } from '@taiga-ui/core';
-
+import { PageContributeComponent } from './pages/page-contribute/page-contribute.component';
+import {TuiInputModule} from '@taiga-ui/kit';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,6 +58,7 @@ import { TuiDataListModule } from '@taiga-ui/core';
     AboutCardComponent,
     PageAboutNodeComponent,
     PageHomeComponent,
+    PageContributeComponent,
   ],
   imports: [
     RouterModule,
@@ -92,7 +94,8 @@ import { TuiDataListModule } from '@taiga-ui/core';
     ReactiveFormsModule,
     TuiSelectModule,
     TuiDataListModule,
-    TuiDataListWrapperModule
+    TuiDataListWrapperModule,
+    TuiInputModule
   ],
   providers: [{ provide: TUI_SANITIZER, useClass: NgDompurifySanitizer }],
   bootstrap: [AppComponent],

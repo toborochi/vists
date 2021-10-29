@@ -1,3 +1,64 @@
-<div style="height: 500px;">
+<div fxLayout="column" fxLayoutAlign="center stretch">
+    <div style="padding: 32px; min-height: 500px;" fxLayout.gt-md="row" fxLayout.lt-md="column"
+        fxLayoutAlign="center stretch" fxLayoutGap="16px">
 
+        <tui-island class="contribute-card">
+            <p class="tui-island__category">Nodo</p>
+            <h3 class="tui-island__title">Origen</h3>
+            <form>
+                <tui-input class="b-form" formControlName="testValue">
+                    Nombre del Nodo
+                </tui-input>
+                <p class="b-form">
+                    <tui-select [formControl]="testValue">
+                        Tipo
+                        <tui-data-list-wrapper *tuiDataList [items]="items"></tui-data-list-wrapper>
+                    </tui-select>
+                </p>
+            </form>
+        </tui-island>
+
+        <tui-island class="contribute-card">
+            <p class="tui-island__category">Arista</p>
+            <h3 class="tui-island__title">Relación</h3>
+            <p class="b-form">
+                <tui-select [formControl]="testValue">
+                    Tipo
+                    <tui-data-list-wrapper *tuiDataList [items]="items"></tui-data-list-wrapper>
+                </tui-select>
+            </p>
+        </tui-island>
+
+        <tui-island class="contribute-card">
+            <p class="tui-island__category">Nodo</p>
+            <h3 class="tui-island__title">Destino</h3>
+            <!--
+            <div class="block2" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="8px">
+                <p>Nuevo</p>
+                <tui-toggle size="l"></tui-toggle>
+            </div>
+            -->
+            <form>
+                <tui-input class="b-form" formControlName="testValue">
+                    Nombre del Nodo
+                </tui-input>
+                <p class="b-form">
+                    <tui-select [formControl]="testValue">
+                        Tipo
+                        <tui-data-list-wrapper *tuiDataList [items]="items"></tui-data-list-wrapper>
+                    </tui-select>
+                </p>
+                <tui-input class="b-form" formControlName="testValue">
+                    URL
+                </tui-input>
+            </form>
+
+        </tui-island>
+
+    </div>
+    <button tuiButton type="button" style="max-width: 192px; width: 50%;
+    margin: 0 auto;" >
+        Subir
+    </button>
+    <div style="height: 32px;"></div>
 </div>
