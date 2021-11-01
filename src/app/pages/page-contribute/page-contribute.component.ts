@@ -1,5 +1,13 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { GraphService } from './../../services/graph.service';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnInit,
+  Inject,
+} from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Observable, Subject } from 'rxjs';
+import { TuiDialogService } from '@taiga-ui/core';
 
 @Component({
   selector: 'app-page-contribute',
@@ -7,24 +15,39 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./page-contribute.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PageContributeComponent implements OnInit {
-  readonly items = [
-    { name: 'John', surname: 'Cleese' },
-    { name: 'Eric', surname: 'Idle' },
-    { name: 'Graham', surname: 'Chapman' },
-    { name: 'Michael', surname: 'Palin' },
-    { name: 'Terry', surname: 'Gilliam' },
-    { name: 'Terry', surname: 'Jones' },
-  ];
+export class PageContributeComponent {
+  readonly relations$ = new Observable<string[]>();
+  readonly nodes$ = new Observable<string[]>();
 
-  readonly stringify = (item: { name: string; surname: string }) =>
-    `${item.name} ${item.surname}`;
+  u = '';
+  v = '';
 
-  value = null;
+  testValue = new FormControl(this.relations$[0]);
+  testValue2 = new FormControl(this.nodes$[0]);
+  testValue3 = new FormControl(this.nodes$[0]);
 
-  testValue = new FormControl(this.items[0]);
+  constructor(
+    private graphService: GraphService,
+    @Inject(TuiDialogService) private readonly dialogService: TuiDialogService
+  ) {
+    this.relations$ = this.graphService.getRelations();
+    this.nodes$ = this.graphService.getNodes();
+  }
 
-  constructor() {}
+  submitContribution() {
+    console.log(this.testValue2.value);
+    console.log(this.testValue.value);
+    console.log(this.testValue3.value);
 
-  ngOnInit() {}
+    this.testValue = new FormControl(this.relations$[0]);
+    this.testValue2 = new FormControl(this.nodes$[0]);
+    this.testValue3 = new FormControl(this.nodes$[0]);
+    this.showDialog();
+  }
+
+  showDialog() {
+    this.dialogService
+      .open('Gracias por tu contribución.', { label: 'Finalizado', size: 's' })
+      .subscribe();
+  }
 }

@@ -52,6 +52,7 @@ import { PageContributeComponent } from './pages/page-contribute/page-contribute
 import { TuiInputModule } from '@taiga-ui/kit';
 import { TuiComboBoxModule } from '@taiga-ui/kit';
 import { TuiStringifyPipeModule } from '@taiga-ui/kit';
+import { NodifyPipe } from './pipes/nodify-pipe/nodify.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,6 +65,7 @@ import { TuiStringifyPipeModule } from '@taiga-ui/kit';
     PageAboutNodeComponent,
     PageHomeComponent,
     PageContributeComponent,
+    NodifyPipe
   ],
   imports: [
     RouterModule,
@@ -109,6 +111,7 @@ import { TuiStringifyPipeModule } from '@taiga-ui/kit';
     TuiFormatPhonePipeModule,
     TuiMapperPipeModule,
     TuiFilterByInputPipeModule,
+    
   ],
   providers: [{ provide: TUI_SANITIZER, useClass: NgDompurifySanitizer }],
   bootstrap: [AppComponent],

@@ -1,5 +1,11 @@
 import { GraphService } from './../../services/graph.service';
-import { Component, Inject, OnDestroy, OnInit ,ChangeDetectionStrategy} from '@angular/core';
+import {
+  Component,
+  Inject,
+  OnDestroy,
+  OnInit,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { Data, DataSet, Edge, Node, VisNetworkService } from 'ngx-vis';
 import { DataView } from 'vis-data';
 
@@ -16,7 +22,7 @@ import { FormControl } from '@angular/forms';
 @Component({
   selector: 'app-page-home',
   templateUrl: './page-home.component.html',
-  styleUrls: ['./page-home.component.css']
+  styleUrls: ['./page-home.component.css'],
 })
 export class PageHomeComponent implements OnInit, OnDestroy {
   title = 'vis';
@@ -28,9 +34,7 @@ export class PageHomeComponent implements OnInit, OnDestroy {
   public visNetworkOptions: Options;
   public view: DataView<Node>;
   public selectedNode: any;
-  items = [
-    'Individuo','Organizacion',
-  ];
+  items = ['Individuo', 'Organizacion'];
   testValue = new FormControl(this.items[0]);
   open = false;
 
@@ -79,6 +83,11 @@ export class PageHomeComponent implements OnInit, OnDestroy {
           shapeProperties: {
             borderRadius: 1,
           },
+        },
+        edges: {
+          arrows: {
+            to: true
+          }
         },
       };
     });

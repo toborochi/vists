@@ -6,11 +6,16 @@
             <p class="tui-island__category">Nodo</p>
             <h3 class="tui-island__title">Origen</h3>
             <form>
-                <tui-combo-box class="b-form" tuiTextfieldExampleText="Type a name" [(ngModel)]="value">
+                <tui-combo-box class="b-form" [(ngModel)]="u" [formControl]="testValue2">
                     Nombre Nodo
-                    <tui-data-list-wrapper *tuiDataList [items]="items | tuiFilterByInput"></tui-data-list-wrapper>
-                </tui-combo-box>
+                    <tui-data-list-wrapper *tuiDataList [items]="nodes$ | async |  nodifyPipe | tuiFilterByInput">
+                    </tui-data-list-wrapper>
+                    <tui-data-list #list emptyContent="No results found"></tui-data-list>
 
+
+                </tui-combo-box>
+                <div style="height: 8px; width: 100%;"></div>
+                <button class="button-new">Crear nuevo</button>
             </form>
             <tui-svg tuiColor="#000" class="icon block2" src="tuiIconCheckCircleLarge"></tui-svg>
         </tui-island>
@@ -22,10 +27,10 @@
             <p class="b-form">
                 <tui-select [formControl]="testValue">
                     Tipo
-                    <tui-data-list-wrapper *tuiDataList [items]="items"></tui-data-list-wrapper>
+                    <tui-data-list-wrapper *tuiDataList [items]="relations$ | async"></tui-data-list-wrapper>
                 </tui-select>
             </p>
-            <tui-svg style="fill: red;"  class="icon block2" src="tuiIconCheckCircleLarge"></tui-svg>
+            <tui-svg style="fill: red;" class="icon block2" src="tuiIconCheckCircleLarge"></tui-svg>
         </tui-island>
         <tui-svg fxHide.lt-md class="icon" src="tuiIconArrowRightLarge"></tui-svg>
         <tui-svg fxHide.gt-md fxHide.md class="icon" src="tuiIconArrowDownLarge"></tui-svg>
@@ -35,20 +40,23 @@
             <form>
 
 
-                <tui-combo-box class="b-form" tuiTextfieldExampleText="Type a name" [(ngModel)]="value">
+                <tui-combo-box class="b-form" [(ngModel)]="v" [formControl]="testValue3">
                     Nombre Nodo
-                    <tui-data-list-wrapper *tuiDataList [items]="items | tuiFilterByInput"></tui-data-list-wrapper>
+                    <tui-data-list-wrapper *tuiDataList [items]="nodes$ | async | nodifyPipe | tuiFilterByInput">
+                    </tui-data-list-wrapper>
                     <tui-data-list #list emptyContent="No results found"></tui-data-list>
 
 
                 </tui-combo-box>
+                <div style="height: 8px; width: 100%;"></div>
+                <button class="button-new">Crear nuevo</button>
             </form>
             <tui-svg tuiColor="#000" class="icon block2" src="tuiIconCheckCircleLarge"></tui-svg>
         </tui-island>
 
     </div>
     <button tuiButton type="button" style="max-width: 192px; width: 50%;
-    margin: 0 auto;">
+    margin: 0 auto;" (click)="submitContribution()">
         Subir
     </button>
     <div style="height: 32px;"></div>
