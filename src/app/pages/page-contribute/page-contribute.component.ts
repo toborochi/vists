@@ -9,6 +9,7 @@ import {
 import { FormControl, FormGroup } from '@angular/forms';
 import { Observable, Subject } from 'rxjs';
 import { TuiDialogContext, TuiDialogService } from '@taiga-ui/core';
+import { GraphContributionService } from 'src/app/services/graph-contribution.service';
 
 @Component({
   selector: 'app-page-contribute',
@@ -16,7 +17,7 @@ import { TuiDialogContext, TuiDialogService } from '@taiga-ui/core';
   styleUrls: ['./page-contribute.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PageContributeComponent {
+export class PageContributeComponent implements OnInit{
   readonly testForm = new FormGroup({
     selected: new FormControl('actor'),
   });
@@ -32,10 +33,13 @@ export class PageContributeComponent {
 
   constructor(
     private graphService: GraphService,
-    @Inject(TuiDialogService) private readonly dialogService: TuiDialogService
+    @Inject(TuiDialogService) private readonly dialogService: TuiDialogService,
+    private graphServiceContribution: GraphContributionService
   ) {
     this.relations$ = this.graphService.getRelations();
     this.nodes$ = this.graphService.getNodes();
+  }
+  ngOnInit(): void {
   }
 
   submitContribution() {
@@ -43,6 +47,7 @@ export class PageContributeComponent {
     console.log(this.selectedFrom);
     console.log(this.selectedRelation);
     console.log(this.selectedTo);
+    console.log(this.graphServiceContribution.data);
     this.showDialog();
   }
 

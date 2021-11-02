@@ -1,23 +1,28 @@
+import { GraphContributionService } from './../../../services/graph-contribution.service';
+import { GraphService } from './../../../services/graph.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-technology-form',
   templateUrl: './technology-form.component.html',
-  styleUrls: ['./technology-form.component.css']
+  styleUrls: ['./technology-form.component.css'],
 })
 export class TechnologyFormComponent implements OnInit {
-
-  rol = [
-    'Abierta',
-    'No Abierta'
-  ]
+  rol = ['Abierta', 'No Abierta'];
 
   testValue = new FormControl(this.rol[0]);
 
-  constructor() { }
+  constructor(private graphService: GraphContributionService) {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  guardar() {
+    this.graphService.data = {
+      labels: ['Tecnologia'],
+      properties: {
+        role: this.testValue.value,
+      },
+    };
   }
-
 }
