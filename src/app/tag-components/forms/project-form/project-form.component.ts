@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-project-form',
@@ -6,6 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./project-form.component.css']
 })
 export class ProjectFormComponent implements OnInit {
+
+  
+
+  tipo = [
+    'Repositorio',
+    'Visualizacion',
+    'Analisis'
+  ]
+
+  testValue = new FormControl(this.tipo[0]);
 
   constructor() { }
 

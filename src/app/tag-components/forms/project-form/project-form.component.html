@@ -2,9 +2,9 @@
 <tui-input class="b-form">
   Nombre del Proyecto
 </tui-input>
-<tui-select class="control">
-  Open-source budget
-  <custom-list *tuiDataList [items]="items"></custom-list>
+<tui-select tuiTextfieldSize="s" [formControl]="testValue">
+  Tipo Proyecto
+  <tui-data-list-wrapper *tuiDataList [items]="tipo"></tui-data-list-wrapper>
 </tui-select>
 <tui-input class="b-form">
   URL

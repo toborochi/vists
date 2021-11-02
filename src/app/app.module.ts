@@ -12,6 +12,7 @@ import {
   TuiColorModule,
   TuiFormatNumberPipeModule,
   TuiFormatPhonePipeModule,
+  TuiScrollbarModule
 } from '@taiga-ui/core';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -130,6 +131,7 @@ import { TechnologyFormComponent } from './tag-components/forms/technology-form/
     NgSelectModule,
     TuiTagModule,
     TuiRadioBlockModule,
+    TuiScrollbarModule, 
   ],
   providers: [{ provide: TUI_SANITIZER, useClass: NgDompurifySanitizer }],
   bootstrap: [AppComponent],

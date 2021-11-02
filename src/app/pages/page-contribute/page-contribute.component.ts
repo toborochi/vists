@@ -18,7 +18,7 @@ import { TuiDialogContext, TuiDialogService } from '@taiga-ui/core';
 })
 export class PageContributeComponent {
   readonly testForm = new FormGroup({
-    selected: new FormControl('orange'),
+    selected: new FormControl('actor'),
   });
 
   

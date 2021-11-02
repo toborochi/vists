@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-technology-form',
@@ -6,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./technology-form.component.css']
 })
 export class TechnologyFormComponent implements OnInit {
+
+  rol = [
+    'Abierta',
+    'No Abierta'
+  ]
+
+  testValue = new FormControl(this.rol[0]);
 
   constructor() { }
 

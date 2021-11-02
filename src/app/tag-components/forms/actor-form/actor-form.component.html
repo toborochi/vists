@@ -1,24 +1,26 @@
-<div fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="16px"> 
-<tui-input class="b-form">
-  Nombre del Actor
-</tui-input>
-<tui-select class="control">
-  Open-source budget
-  <custom-list *tuiDataList [items]="items"></custom-list>
-</tui-select>
-<tui-select class="control">
-  Open-source budget
-  <custom-list *tuiDataList [items]="items"></custom-list>
-</tui-select>
-<tui-select class="control">
-  Open-source budget
-  <custom-list *tuiDataList [items]="items"></custom-list>
-</tui-select>
-<tui-select class="control">
-  Open-source budget
-  <custom-list *tuiDataList [items]="items"></custom-list>
-</tui-select>
-<tui-input class="b-form">
-  URL
-</tui-input>
+<div fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="16px">
+  <tui-input class="b-form">
+    Nombre del Actor
+  </tui-input>
+  <p class="b-form">
+    <tui-select tuiTextfieldSize="s" [formControl]="testValue">
+      Tipo Nodo
+      <tui-data-list-wrapper *tuiDataList [items]="items"></tui-data-list-wrapper>
+    </tui-select>
+  </p>
+  <tui-select tuiTextfieldSize="s" [formControl]="testValue2">
+    Sector
+    <tui-data-list-wrapper *tuiDataList [items]="sector"></tui-data-list-wrapper>
+  </tui-select>
+  <tui-select tuiTextfieldSize="s" [formControl]="testValue3">
+    Grupo
+    <tui-data-list-wrapper *tuiDataList [items]="grupo"></tui-data-list-wrapper>
+  </tui-select>
+  <tui-select tuiTextfieldSize="s" [formControl]="testValue4">
+    Rol
+    <tui-data-list-wrapper *tuiDataList [items]="rol"></tui-data-list-wrapper>
+  </tui-select>
+  <tui-input class="b-form">
+    URL
+  </tui-input>
 </div>

@@ -63,36 +63,40 @@
 </div>
 
 <ng-template #template let-observer>
-    <div>
+    <div fxLayout="column" fxLayoutAlign="center stretch">
         <form class="group" [formGroup]="testForm">
             <p class="text">Tipo de Nodo:<tui-money [value]="data"></tui-money>
             <div tuiGroup class="group" [collapsed]="true">
-                <tui-radio-block contentAlign="right" formControlName="selected" item="orange" size="l">
+                <tui-radio-block contentAlign="right" formControlName="selected" item="actor" size="l">
                     Actor
                 </tui-radio-block>
-                <tui-radio-block contentAlign="right" formControlName="selected" item="apple" size="l">
+                <tui-radio-block contentAlign="right" formControlName="selected" item="proyecto" size="l">
                     Proyecto
                 </tui-radio-block>
-                <tui-radio-block contentAlign="right" formControlName="selected" item="pineapple" size="l">
+                <tui-radio-block contentAlign="right" formControlName="selected" item="tecnologia" size="l">
                     Tecnología
                 </tui-radio-block>
             </div>
         </form>
         <p class="text">Atributos:<tui-money [value]="data"></tui-money>
 
-            <span [ngSwitch]="testForm.value.selected">
-                <p *ngSwitchCase="'orange'">
-                    <app-actor-form></app-actor-form>
-                </p>
-                <p *ngSwitchCase="'pineapple'">
-                    <app-project-form></app-project-form>
-                </p>
-                <p *ngSwitchDefault>
-                    <app-technology-form></app-technology-form>
-                </p>
-            </span>
-
-            <button tuiButton type="button" size="m" (click)="observer.complete()">Cancel</button>
+            <tui-scrollbar class="box">
+                <span [ngSwitch]="testForm.value.selected">
+                    <p *ngSwitchCase="'actor'">
+                        <app-actor-form></app-actor-form>
+                    </p>
+                    <p *ngSwitchCase="'proyecto'">
+                        <app-project-form></app-project-form>
+                    </p>
+                    <p *ngSwitchDefault>
+                        <app-technology-form></app-technology-form>
+                    </p>
+                </span>
+            </tui-scrollbar>
+            <div fxLayout="row" fxLayoutAlign="center stretch"  fxLayoutGap="8px"  > 
+            <button tuiButton type="button" size="m" (click)="observer.complete()">Aceptar</button>
+            <button tuiButton type="button" size="m" (click)="observer.complete()">Cancelar</button>
+            </div>
 
     </div>
 </ng-template>
