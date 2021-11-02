@@ -1,3 +1,4 @@
+import { PolymorpheusContent } from '@tinkoff/ng-polymorpheus';
 import { GraphService } from './../../services/graph.service';
 import {
   ChangeDetectionStrategy,
@@ -7,7 +8,7 @@ import {
 } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Observable, Subject } from 'rxjs';
-import { TuiDialogService } from '@taiga-ui/core';
+import { TuiDialogContext, TuiDialogService } from '@taiga-ui/core';
 
 @Component({
   selector: 'app-page-contribute',
@@ -21,9 +22,9 @@ export class PageContributeComponent {
 
   
 
-  selectedFrom : string;
-  selectedRelation: string;
-  selectedTo: string;
+  selectedFrom : any;
+  selectedRelation: any;
+  selectedTo: any;
 
   constructor(
     private graphService: GraphService,
@@ -33,12 +34,12 @@ export class PageContributeComponent {
     this.nodes$ = this.graphService.getNodes();
   }
 
-  testForm = new FormControl();
-
-  testForm2 = new FormControl();
 
   submitContribution() {
 
+    console.log(this.selectedFrom);
+    console.log(this.selectedRelation);
+    console.log(this.selectedTo);
     this.showDialog();
   }
 
@@ -48,7 +49,9 @@ export class PageContributeComponent {
       .subscribe();
   }
 
-  CreateNew(){
-    alert("Create New Clicked")
-  }
+  showDialogNode(content: PolymorpheusContent<TuiDialogContext>) {
+	        this.dialogService.open(content).subscribe();
+	    }
+
+  
 }
