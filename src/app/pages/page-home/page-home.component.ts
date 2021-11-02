@@ -18,6 +18,7 @@ import {
 import { TuiDialogContext, TuiDialogService } from '@taiga-ui/core';
 import { PolymorpheusContent } from '@tinkoff/ng-polymorpheus';
 import { FormControl } from '@angular/forms';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 @Component({
   selector: 'app-page-home',
@@ -43,13 +44,16 @@ export class PageHomeComponent implements OnInit, OnDestroy {
     private router: Router,
     private scrollToService: ScrollToService,
     private graphService: GraphService,
+    private ngxLoader: NgxUiLoaderService,
     @Inject(TuiDialogService) private readonly dialogService: TuiDialogService
   ) {}
 
   public networkInitialized(): void {
+    
+    this.ngxLoader.stop();
     // now we can use the service to register on events
     this.visNetworkService.on(this.visNetwork, 'click');
-
+    
     // open your console/dev tools to see the click params
     this.visNetworkService.click.subscribe((eventData: any[]) => {
       const d = eventData[1].nodes;
@@ -57,11 +61,13 @@ export class PageHomeComponent implements OnInit, OnDestroy {
         console.log(this.nodes.get(d));
         this.selectedNode = this.nodes.get(d);
         this.toggle(true);
+        
       }
     });
   }
 
   public ngOnInit(): void {
+    this.ngxLoader.start();
     this.graphService.getGraph().subscribe((data) => {
       console.log(data);
 
@@ -74,7 +80,7 @@ export class PageHomeComponent implements OnInit, OnDestroy {
           return item.group == 'Individuo';
         },
       });
-
+      
       this.visNetworkOptions = {
         nodes: {
           shape: 'dot',

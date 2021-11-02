@@ -41,6 +41,7 @@
     "@tinkoff/ng-dompurify": "3.0.0",
     "dompurify": "2.2.9",
     "ngx-highlightjs": "^5.0.0",
+    "ngx-ui-loader": "^11.0.0",
     "ngx-vis": "^3.0.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

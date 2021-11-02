@@ -19,7 +19,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { VisModule } from 'ngx-vis';
-import { TuiFilterPipeModule, TuiFocusableModule, TuiMapperPipeModule, TuiPortalHostModule } from '@taiga-ui/cdk';
+import {
+  TuiFilterPipeModule,
+  TuiFocusableModule,
+  TuiMapperPipeModule,
+  TuiPortalHostModule,
+} from '@taiga-ui/cdk';
 import { TuiDocNavigationModule } from '@taiga-ui/addon-doc';
 import {
   TuiAvatarModule,
@@ -30,6 +35,7 @@ import {
   TuiSelectModule,
   TuiDataListWrapperModule,
   TuiFilterByInputPipeModule,
+  TuiCheckboxBlockModule,
 } from '@taiga-ui/kit';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LabFooterComponent } from './components/lab-footer/lab-footer.component';
@@ -53,6 +59,7 @@ import { TuiInputModule } from '@taiga-ui/kit';
 import { TuiComboBoxModule } from '@taiga-ui/kit';
 import { TuiStringifyPipeModule } from '@taiga-ui/kit';
 import { NodifyPipe } from './pipes/nodify-pipe/nodify.pipe';
+import { NgxUiLoaderModule } from "ngx-ui-loader";
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,7 +72,7 @@ import { NodifyPipe } from './pipes/nodify-pipe/nodify.pipe';
     PageAboutNodeComponent,
     PageHomeComponent,
     PageContributeComponent,
-    NodifyPipe
+    NodifyPipe,
   ],
   imports: [
     RouterModule,
@@ -111,7 +118,8 @@ import { NodifyPipe } from './pipes/nodify-pipe/nodify.pipe';
     TuiFormatPhonePipeModule,
     TuiMapperPipeModule,
     TuiFilterByInputPipeModule,
-    
+    TuiCheckboxBlockModule,
+    NgxUiLoaderModule,
   ],
   providers: [{ provide: TUI_SANITIZER, useClass: NgDompurifySanitizer }],
   bootstrap: [AppComponent],

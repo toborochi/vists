@@ -5,7 +5,7 @@ import {
   OnInit,
   Inject,
 } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Observable, Subject } from 'rxjs';
 import { TuiDialogService } from '@taiga-ui/core';
 
@@ -34,14 +34,23 @@ export class PageContributeComponent {
     this.nodes$ = this.graphService.getNodes();
   }
 
+  testForm = new FormControl();
+
+  testForm2 = new FormControl();
+
   submitContribution() {
     console.log(this.testValue2.value);
     console.log(this.testValue.value);
     console.log(this.testValue3.value);
+    console.log(this.testForm.value)
+
 
     this.testValue = new FormControl(this.relations$[0]);
     this.testValue2 = new FormControl(this.nodes$[0]);
     this.testValue3 = new FormControl(this.nodes$[0]);
+
+
+
     this.showDialog();
   }
 
