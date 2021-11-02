@@ -5,20 +5,17 @@
         <tui-island class="contribute-card">
             <p class="tui-island__category">Nodo</p>
             <h3 class="tui-island__title">Origen</h3>
-            <form>
+            <p class="b-form">
+                <ng-select placeholder="Escoja un Nodo" [(ngModel)]="selectedFrom" name="something">
+                    <ng-option *ngFor="let car of nodes$ | async" [value]="car.properties.name">{{car.properties.name}}
+                    </ng-option>
 
-                <div style="height: 8px; width: 100%;"></div>
-                <tui-combo-box class="b-form" [(ngModel)]="u" [formControl]="testForm">
-                    Nombre Nodo
-                    <tui-data-list-wrapper *tuiDataList [items]="nodes$ |  async | nodifyPipe | tuiFilterByInput">
-                    </tui-data-list-wrapper>
-
-
-                </tui-combo-box>
-                <div style="height: 8px; width: 100%;"></div>
-                <button class="button-new">Crear nuevo</button>
-            </form>
-            <tui-svg *ngIf="testForm.value"  tuiColor="#000" class="icon block2" src="tuiIconCheckCircleLarge"></tui-svg>
+                    <ng-template ng-footer-tmp>
+                        <div class="button-new" (click)="CreateNew()">Crear Nuevo</div>
+                    </ng-template>
+                </ng-select>
+            </p>
+            <tui-svg *ngIf="selectedFrom" tuiColor="#000" class="icon block2" src="tuiIconCheckCircleLarge"></tui-svg>
         </tui-island>
         <tui-svg fxHide.lt-md class="icon" src="tuiIconArrowRightLarge"></tui-svg>
         <tui-svg fxHide.gt-md fxHide.md class="icon" src="tuiIconArrowDownLarge"></tui-svg>
@@ -26,32 +23,32 @@
             <p class="tui-island__category">Arista</p>
             <h3 class="tui-island__title">Relación</h3>
             <p class="b-form">
-                <tui-select [formControl]="testValue">
-                    Tipo
-                    <tui-data-list-wrapper *tuiDataList [items]="relations$ | async"></tui-data-list-wrapper>
-                </tui-select>
+                <ng-select placeholder="Escoja una Arista" [(ngModel)]="selectedRelation" name="something">
+                    <ng-option *ngFor="let edge of relations$ | async" [value]="edge">{{edge}}
+                    </ng-option>
+                </ng-select>
             </p>
-            <tui-svg *ngIf="testValue.value" style="fill: red;" class="icon block2" src="tuiIconCheckCircleLarge"></tui-svg>
+            <tui-svg *ngIf="selectedRelation" style="fill: red;" class="icon block2" src="tuiIconCheckCircleLarge">
+            </tui-svg>
         </tui-island>
         <tui-svg fxHide.lt-md class="icon" src="tuiIconArrowRightLarge"></tui-svg>
         <tui-svg fxHide.gt-md fxHide.md class="icon" src="tuiIconArrowDownLarge"></tui-svg>
         <tui-island class="contribute-card">
             <p class="tui-island__category">Nodo</p>
             <h3 class="tui-island__title">Destino</h3>
-            <form>
+            <p class="b-form">
 
-                <div style="height: 8px; width: 100%;"></div>
-                <tui-combo-box class="b-form" [(ngModel)]="v" [formControl]="testForm2">
-                    Nombre Nodo
-                    <tui-data-list-wrapper *tuiDataList [items]="nodes$ | async | nodifyPipe  | tuiFilterByInput">
-                    </tui-data-list-wrapper>
+                <ng-select placeholder="Escoja un Nodo" [(ngModel)]="selectedTo" name="something">
+                    <ng-option *ngFor="let car of nodes$ | async" [value]="car.properties.name">{{car.properties.name}}
+                    </ng-option>
 
-
-                </tui-combo-box>
-                <div style="height: 8px; width: 100%;"></div>
-                <button class="button-new">Crear nuevo</button>
-            </form>
-            <tui-svg *ngIf="testForm2.value"tuiColor="#000" class="icon block2" src="tuiIconCheckCircleLarge"></tui-svg>
+                    <ng-template ng-footer-tmp>
+                        <div class="button-new" (click)="CreateNew()">Crear Nuevo</div>
+                    </ng-template>
+                </ng-select>
+            </p>
+            <tui-svg *ngIf="selectedTo" tuiColor="#000" class="icon block2" src="tuiIconCheckCircleLarge">
+            </tui-svg>
         </tui-island>
 
     </div>

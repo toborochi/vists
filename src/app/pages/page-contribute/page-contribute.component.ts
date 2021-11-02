@@ -19,12 +19,11 @@ export class PageContributeComponent {
   readonly relations$ = new Observable<string[]>();
   readonly nodes$ = new Observable<string[]>();
 
-  u = '';
-  v = '';
+  
 
-  testValue = new FormControl(this.relations$[0]);
-  testValue2 = new FormControl(this.nodes$[0]);
-  testValue3 = new FormControl(this.nodes$[0]);
+  selectedFrom : string;
+  selectedRelation: string;
+  selectedTo: string;
 
   constructor(
     private graphService: GraphService,
@@ -39,17 +38,6 @@ export class PageContributeComponent {
   testForm2 = new FormControl();
 
   submitContribution() {
-    console.log(this.testValue2.value);
-    console.log(this.testValue.value);
-    console.log(this.testValue3.value);
-    console.log(this.testForm.value)
-
-
-    this.testValue = new FormControl(this.relations$[0]);
-    this.testValue2 = new FormControl(this.nodes$[0]);
-    this.testValue3 = new FormControl(this.nodes$[0]);
-
-
 
     this.showDialog();
   }
@@ -58,5 +46,9 @@ export class PageContributeComponent {
     this.dialogService
       .open('Gracias por tu contribución.', { label: 'Finalizado', size: 's' })
       .subscribe();
+  }
+
+  CreateNew(){
+    alert("Create New Clicked")
   }
 }

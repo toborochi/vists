@@ -59,7 +59,7 @@ import { TuiInputModule } from '@taiga-ui/kit';
 import { TuiComboBoxModule } from '@taiga-ui/kit';
 import { TuiStringifyPipeModule } from '@taiga-ui/kit';
 import { NodifyPipe } from './pipes/nodify-pipe/nodify.pipe';
-import { NgxUiLoaderModule } from "ngx-ui-loader";
+import { NgSelectModule } from '@ng-select/ng-select';
 @NgModule({
   declarations: [
     AppComponent,
@@ -119,7 +119,7 @@ import { NgxUiLoaderModule } from "ngx-ui-loader";
     TuiMapperPipeModule,
     TuiFilterByInputPipeModule,
     TuiCheckboxBlockModule,
-    NgxUiLoaderModule,
+    NgSelectModule
   ],
   providers: [{ provide: TUI_SANITIZER, useClass: NgDompurifySanitizer }],
   bootstrap: [AppComponent],
