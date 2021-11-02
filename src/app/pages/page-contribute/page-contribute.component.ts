@@ -17,12 +17,16 @@ import { TuiDialogContext, TuiDialogService } from '@taiga-ui/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PageContributeComponent {
-  readonly relations$ = new Observable<string[]>();
-  readonly nodes$ = new Observable<string[]>();
+  readonly testForm = new FormGroup({
+    selected: new FormControl('orange'),
+  });
 
   
 
-  selectedFrom : any;
+  readonly relations$ = new Observable<string[]>();
+  readonly nodes$ = new Observable<string[]>();
+
+  selectedFrom: any;
   selectedRelation: any;
   selectedTo: any;
 
@@ -34,9 +38,8 @@ export class PageContributeComponent {
     this.nodes$ = this.graphService.getNodes();
   }
 
-
   submitContribution() {
-
+    console.log(this.testForm.value);
     console.log(this.selectedFrom);
     console.log(this.selectedRelation);
     console.log(this.selectedTo);
@@ -50,8 +53,6 @@ export class PageContributeComponent {
   }
 
   showDialogNode(content: PolymorpheusContent<TuiDialogContext>) {
-	        this.dialogService.open(content).subscribe();
-	    }
-
-  
+    this.dialogService.open(content).subscribe();
+  }
 }

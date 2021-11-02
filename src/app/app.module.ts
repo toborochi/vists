@@ -36,6 +36,11 @@ import {
   TuiDataListWrapperModule,
   TuiFilterByInputPipeModule,
   TuiCheckboxBlockModule,
+  TuiInputModule,
+  TuiComboBoxModule,
+  TuiStringifyPipeModule,
+  TuiTagModule,
+  TuiRadioBlockModule,
 } from '@taiga-ui/kit';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LabFooterComponent } from './components/lab-footer/lab-footer.component';
@@ -55,12 +60,11 @@ import { TuiSidebarModule } from '@taiga-ui/addon-mobile';
 import { TuiActiveZoneModule } from '@taiga-ui/cdk';
 import { TuiDataListModule } from '@taiga-ui/core';
 import { PageContributeComponent } from './pages/page-contribute/page-contribute.component';
-import { TuiInputModule } from '@taiga-ui/kit';
-import { TuiComboBoxModule } from '@taiga-ui/kit';
-import { TuiStringifyPipeModule } from '@taiga-ui/kit';
 import { NodifyPipe } from './pipes/nodify-pipe/nodify.pipe';
 import { NgSelectModule } from '@ng-select/ng-select';
-import {TuiTagModule} from '@taiga-ui/kit';
+import { ActorFormComponent } from './tag-components/forms/actor-form/actor-form.component';
+import { ProjectFormComponent } from './tag-components/forms/project-form/project-form.component';
+import { TechnologyFormComponent } from './tag-components/forms/technology-form/technology-form.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,6 +78,9 @@ import {TuiTagModule} from '@taiga-ui/kit';
     PageHomeComponent,
     PageContributeComponent,
     NodifyPipe,
+    ActorFormComponent,
+    ProjectFormComponent,
+    TechnologyFormComponent
   ],
   imports: [
     RouterModule,
@@ -121,7 +128,8 @@ import {TuiTagModule} from '@taiga-ui/kit';
     TuiFilterByInputPipeModule,
     TuiCheckboxBlockModule,
     NgSelectModule,
-    TuiTagModule
+    TuiTagModule,
+    TuiRadioBlockModule,
   ],
   providers: [{ provide: TUI_SANITIZER, useClass: NgDompurifySanitizer }],
   bootstrap: [AppComponent],
