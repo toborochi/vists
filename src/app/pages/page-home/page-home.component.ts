@@ -33,6 +33,7 @@ export class PageHomeComponent implements OnInit, OnDestroy {
   public nodes: DataSet<Node>;
   public edges: DataSet<Edge>;
   public visNetworkOptions: Options;
+  public searching = false;
 
   public selectedNode: any;
   items = ['Individuo', 'Organizacion'];
@@ -186,5 +187,9 @@ export class PageHomeComponent implements OnInit, OnDestroy {
 
   showDialog(content: PolymorpheusContent<TuiDialogContext>) {
     this.dialogService.open(content).subscribe();
+  }
+
+  search(){
+    this.searching=true;
   }
 }
