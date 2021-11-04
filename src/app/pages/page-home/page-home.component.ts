@@ -40,6 +40,7 @@ export class PageHomeComponent implements OnInit, OnDestroy {
   open = false;
 
   public view: DataView<Node>;
+  public viewDefault: DataView<Node>;
 
   public constructor(
     private visNetworkService: VisNetworkService,
@@ -56,9 +57,19 @@ export class PageHomeComponent implements OnInit, OnDestroy {
       const d = eventData[1].nodes;
       if (eventData[0] === this.visNetwork && d.length > 0) {
         // console.log(this.nodes.get(d));
+
         this.selectedNode = this.nodes.get(d);
+        // console.log(this.visNetworkService.getConnectedNodes(this.visNetwork,this.selectedNode[0].id));
         this.toggle(true);
       }
+    });
+  }
+
+  setFilter(type:string){
+    this.view = new DataView(this.nodes, {
+      filter: function (item) {
+        return item.group == type;
+      },
     });
   }
 
@@ -69,11 +80,7 @@ export class PageHomeComponent implements OnInit, OnDestroy {
       this.edges = new DataSet<Edge>(data.edges);
       this.visNetworkData = { nodes: this.nodes, edges: this.edges };
 
-      this.view = new DataView(this.nodes, {
-        filter: function (item) {
-          return item.group == 'Tecnologia';
-        },
-      });
+      this.viewDefault = new DataView(this.nodes);
 
       this.visNetworkOptions = {
         nodes: {
@@ -157,9 +164,18 @@ export class PageHomeComponent implements OnInit, OnDestroy {
     this.open = open;
   }
 
-  filter() {
-    console.log(this.view.get());
+  setDefault(){
+    this.nodes.update(this.viewDefault.get());
+    this.visNetworkService.setData(this.visNetwork, {
+      nodes: this.viewDefault.get(),
+      edges: this.edges,
+    });
+  }
 
+  filter(filt:string) {
+    //console.log(this.view.get());
+
+    this.setFilter(filt);
     this.nodes.update(this.view.get());
 
     this.visNetworkService.setData(this.visNetwork, {

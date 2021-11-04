@@ -1,5 +1,4 @@
-
-<div style="width: 100%;height: calc(100vh - 71px);position:relative;" >
+<div style="width: 100%;height: calc(100vh - 71px);position:relative;">
 
   <div *ngIf="visNetworkData" style="width: 100%;height: 100%" [visNetwork]="visNetwork"
     [visNetworkData]="visNetworkData" [visNetworkOptions]="visNetworkOptions" (initialized)="networkInitialized()">
@@ -13,6 +12,34 @@
     <button (click)="zoomIn()"><span style="padding: 8px" class="glyphicon glyphicon-plus"></span></button>
     <button (click)="zoomOut()"><span style="padding: 8px" class="glyphicon glyphicon-minus"></span></button>
     <button (click)="fit()"><span style="padding: 8px" class="glyphicon glyphicon-eye-open"></span></button>
+    <!--
+    <button (click)="showDialog(template2)"><span style="padding: 8px"
+        class="glyphicon glyphicon-search"></span></button>-->
+  </div>
+
+  <div style="
+    top: 0;
+    left: 0;
+    margin: 16px;
+    position: absolute" class="btn-group">
+    <div class="editor-box">
+      <div class="radio">
+        <input (click)="filter('Tecnologia')" id="radio-1" name="radio" type="radio" >
+        <label for="radio-1" class="radio-label">Tecnologia</label>
+      </div>
+      <div class="radio">
+        <input (click)="filter('Actor')" id="radio-2" name="radio" type="radio">
+        <label for="radio-2" class="radio-label">Actor</label>
+      </div>
+      <div class="radio">
+        <input (click)="filter('Proyecto')" id="radio-3" name="radio" type="radio">
+        <label for="radio-3" class="radio-label">Proyecto</label>
+      </div>
+      <div class="radio">
+        <input (click)="setDefault()" id="radio-4" name="radio" type="radio" checked>
+        <label for="radio-4" class="radio-label">Completo</label>
+      </div>
+    </div>
     <!--
     <button (click)="showDialog(template2)"><span style="padding: 8px"
         class="glyphicon glyphicon-search"></span></button>-->
