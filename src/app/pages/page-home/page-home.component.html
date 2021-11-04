@@ -13,8 +13,9 @@
     <button (click)="zoomIn()"><span style="padding: 8px" class="glyphicon glyphicon-plus"></span></button>
     <button (click)="zoomOut()"><span style="padding: 8px" class="glyphicon glyphicon-minus"></span></button>
     <button (click)="fit()"><span style="padding: 8px" class="glyphicon glyphicon-eye-open"></span></button>
+    <!--
     <button (click)="showDialog(template2)"><span style="padding: 8px"
-        class="glyphicon glyphicon-search"></span></button>
+        class="glyphicon glyphicon-search"></span></button>-->
   </div>
 
   <span class="scroll-btn">
@@ -36,9 +37,28 @@
           (click)="toggle(false)"></button>
 
         <div fxLayout="column" fxLayoutAlign="start start">
-          <h3>Actor</h3>
-          <p class="tui-text_h5" style="margin: 0;">{{this.selectedNode[0].label}}</p>
-          <h3>URLs</h3>
+          <h3>{{selectedNode[0].group}}</h3>
+          <p class="tui-text_h5" style="margin: 0;">{{selectedNode[0].label}}</p>
+
+          <div *ngIf="selectedNode[0].properties?.type">
+            <h3>Tipo:</h3>
+            <p class="tui-text_h6" style="margin: 0;">{{selectedNode[0].properties.type}}</p>
+          </div>
+
+          <div *ngIf="selectedNode[0].properties?.sector">
+            <h3>Sector:</h3>
+            <p class="tui-text_h6" style="margin: 0;">{{selectedNode[0].properties.sector}}</p>
+          </div>
+
+          <div *ngIf="selectedNode[0].properties?.group">
+            <h3>Grupo:</h3>
+            <p class="tui-text_h6" style="margin: 0;">{{selectedNode[0].properties.group}}</p>
+          </div>
+
+
+
+          <h3>URL(s):</h3>
+          <a *ngFor="let link of selectedNode[0].properties.url" tuiLink href="{{link}}" target="_blank">{{link}}</a>
         </div>
       </div>
     </tui-accordion>

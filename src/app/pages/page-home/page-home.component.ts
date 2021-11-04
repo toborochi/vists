@@ -33,15 +33,16 @@ export class PageHomeComponent implements OnInit, OnDestroy {
   public nodes: DataSet<Node>;
   public edges: DataSet<Edge>;
   public visNetworkOptions: Options;
-  public view: DataView<Node>;
+
   public selectedNode: any;
   items = ['Individuo', 'Organizacion'];
   testValue = new FormControl(this.items[0]);
   open = false;
 
+  public view: DataView<Node>;
+
   public constructor(
     private visNetworkService: VisNetworkService,
-    private router: Router,
     private scrollToService: ScrollToService,
     private graphService: GraphService,
     private ngxLoader: NgxUiLoaderService,
@@ -49,19 +50,14 @@ export class PageHomeComponent implements OnInit, OnDestroy {
   ) {}
 
   public networkInitialized(): void {
-    
     this.ngxLoader.stop();
-    // now we can use the service to register on events
     this.visNetworkService.on(this.visNetwork, 'click');
-    
-    // open your console/dev tools to see the click params
     this.visNetworkService.click.subscribe((eventData: any[]) => {
       const d = eventData[1].nodes;
       if (eventData[0] === this.visNetwork && d.length > 0) {
-        console.log(this.nodes.get(d));
+        // console.log(this.nodes.get(d));
         this.selectedNode = this.nodes.get(d);
         this.toggle(true);
-        
       }
     });
   }
@@ -69,18 +65,16 @@ export class PageHomeComponent implements OnInit, OnDestroy {
   public ngOnInit(): void {
     this.ngxLoader.start();
     this.graphService.getGraph().subscribe((data) => {
-      console.log(data);
-
       this.nodes = new DataSet<Node>(data.nodes);
       this.edges = new DataSet<Edge>(data.edges);
       this.visNetworkData = { nodes: this.nodes, edges: this.edges };
 
       this.view = new DataView(this.nodes, {
         filter: function (item) {
-          return item.group == 'Individuo';
+          return item.group == 'Tecnologia';
         },
       });
-      
+
       this.visNetworkOptions = {
         nodes: {
           shape: 'dot',
@@ -92,8 +86,8 @@ export class PageHomeComponent implements OnInit, OnDestroy {
         },
         edges: {
           arrows: {
-            to: true
-          }
+            to: true,
+          },
         },
       };
     });
