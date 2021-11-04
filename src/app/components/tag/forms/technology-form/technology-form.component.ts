@@ -1,5 +1,5 @@
-import { GraphContributionService } from './../../../services/graph-contribution.service';
-import { GraphService } from './../../../services/graph.service';
+import { GraphContributionService } from './../../../../services/graph-contribution.service';
+
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 

@@ -1,3 +1,4 @@
+import { LabFooterComponent } from './components/layout/lab-footer/lab-footer.component';
 import { NgDompurifySanitizer } from '@tinkoff/ng-dompurify';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
@@ -44,14 +45,9 @@ import {
   TuiRadioBlockModule,
 } from '@taiga-ui/kit';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LabFooterComponent } from './components/lab-footer/lab-footer.component';
-import { LabHeaderComponent } from './components/lab-header/lab-header.component';
-import { LabAboutComponent } from './components/lab-about/lab-about.component';
-import { LabLatestComponent } from './components/lab-latest/lab-latest.component';
+
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { LatestCardComponent } from './tag-components/latest-card/latest-card.component';
-import { AboutCardComponent } from './tag-components/about-card/about-card.component';
 import { PageAboutNodeComponent } from './pages/page-about-node/page-about-node.component';
 import { PageHomeComponent } from './pages/page-home/page-home.component';
 import { RouterModule } from '@angular/router';
@@ -63,9 +59,14 @@ import { TuiDataListModule } from '@taiga-ui/core';
 import { PageContributeComponent } from './pages/page-contribute/page-contribute.component';
 import { NodifyPipe } from './pipes/nodify-pipe/nodify.pipe';
 import { NgSelectModule } from '@ng-select/ng-select';
-import { ActorFormComponent } from './tag-components/forms/actor-form/actor-form.component';
-import { ProjectFormComponent } from './tag-components/forms/project-form/project-form.component';
-import { TechnologyFormComponent } from './tag-components/forms/technology-form/technology-form.component';
+import { LabHeaderComponent } from './components/layout/lab-header/lab-header.component';
+import { LabAboutComponent } from './components/layout/lab-about/lab-about.component';
+import { LabLatestComponent } from './components/layout/lab-latest/lab-latest.component';
+import { LatestCardComponent } from './components/tag/latest-card/latest-card.component';
+import { AboutCardComponent } from './components/tag/about-card/about-card.component';
+import { ActorFormComponent } from './components/tag/forms/actor-form/actor-form.component';
+import { ProjectFormComponent } from './components/tag/forms/project-form/project-form.component';
+import { TechnologyFormComponent } from './components/tag/forms/technology-form/technology-form.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -81,7 +82,7 @@ import { TechnologyFormComponent } from './tag-components/forms/technology-form/
     NodifyPipe,
     ActorFormComponent,
     ProjectFormComponent,
-    TechnologyFormComponent,
+    TechnologyFormComponent
   ],
   imports: [
     RouterModule,
