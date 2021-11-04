@@ -1,15 +1,25 @@
 <div style="width: 100%;height: calc(100vh - 71px);position:relative;">
 
   <div [ngStyle]="{'filter': (searching)?'blur(8px)':'none'}" *ngIf="visNetworkData"
-    style="transition: 0.5s filter linear; width: 100%;height: 100%" [visNetwork]="visNetwork"
+    style="transition: 250ms filter linear; width: 100%;height: 100%" [visNetwork]="visNetwork"
     [visNetworkData]="visNetworkData" [visNetworkOptions]="visNetworkOptions" (initialized)="networkInitialized()">
 
   </div>
-  <button style="position: absolute;
+
+
+
+  <ng-select
+  (change)="onChange($event)"
+  *ngIf="searching" style="position: absolute;
   top: 50%;
   left: 50%;
+  width: 192px;
   margin-right: -50%;
-  transform: translate(-50%, -50%)" *ngIf="searching" (click)="toggleSearch()">Buscar</button>
+  transform: translate(-50%, -50%)" placeholder="Buscar Nodo" name="something">
+    <ng-option *ngFor="let node of ['xx','xa']" [value]="node">{{node}}
+    </ng-option>
+  </ng-select>
+
   <div style="
     top: 0;
     right: 0;

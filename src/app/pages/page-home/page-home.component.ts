@@ -55,6 +55,8 @@ export class PageHomeComponent implements OnInit, OnDestroy {
     this.ngxLoader.stop();
     this.visNetworkService.on(this.visNetwork, 'click');
     this.visNetworkService.click.subscribe((eventData: any[]) => {
+
+      this.toggleSearch();
       const d = eventData[1].nodes;
       if (eventData[0] === this.visNetwork && d.length > 0) {
         // console.log(this.nodes.get(d));
@@ -195,5 +197,10 @@ export class PageHomeComponent implements OnInit, OnDestroy {
 
   toggleSearch(){
     this.searching = false;
+  }
+
+  onChange(event: any){
+    console.log('x');
+    this.toggleSearch();
   }
 }
