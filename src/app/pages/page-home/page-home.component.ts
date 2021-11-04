@@ -55,26 +55,24 @@ export class PageHomeComponent implements OnInit, OnDestroy {
     this.ngxLoader.stop();
     this.visNetworkService.on(this.visNetwork, 'click');
     this.visNetworkService.click.subscribe((eventData: any[]) => {
-
       this.toggleSearch();
       const d = eventData[1].nodes;
       if (eventData[0] === this.visNetwork && d.length > 0) {
-        // console.log(this.nodes.get(d));
-
         this.selectedNode = this.nodes.get(d);
-        // console.log(this.visNetworkService.getConnectedNodes(this.visNetwork,this.selectedNode[0].id));
         this.toggle(true);
       }
     });
   }
 
-  setFilter(type:string){
+  setFilter(type: string) {
     this.view = new DataView(this.nodes, {
       filter: function (item) {
         return item.group == type;
       },
     });
   }
+  selectedNodeSearch = null;
+  itemsNode = null;
 
   public ngOnInit(): void {
     this.ngxLoader.start();
@@ -84,6 +82,13 @@ export class PageHomeComponent implements OnInit, OnDestroy {
       this.visNetworkData = { nodes: this.nodes, edges: this.edges };
 
       this.viewDefault = new DataView(this.nodes);
+      this.itemsNode = data.nodes.map((n) => {
+        return {
+          value: n.id,
+          label: n.label,
+          properties: n.properties,
+        };
+      });
 
       this.visNetworkOptions = {
         nodes: {
@@ -167,7 +172,7 @@ export class PageHomeComponent implements OnInit, OnDestroy {
     this.open = open;
   }
 
-  setDefault(){
+  setDefault() {
     this.nodes.update(this.viewDefault.get());
     this.visNetworkService.setData(this.visNetwork, {
       nodes: this.viewDefault.get(),
@@ -175,7 +180,7 @@ export class PageHomeComponent implements OnInit, OnDestroy {
     });
   }
 
-  filter(filt:string) {
+  filter(filt: string) {
     //console.log(this.view.get());
 
     this.setFilter(filt);
@@ -191,16 +196,31 @@ export class PageHomeComponent implements OnInit, OnDestroy {
     this.dialogService.open(content).subscribe();
   }
 
-  search(){
-    this.searching=true;
+  search() {
+    this.searching = true;
   }
 
-  toggleSearch(){
+  toggleSearch() {
     this.searching = false;
   }
 
-  onChange(event: any){
-    console.log('x');
+  onChange(event: any) {
+    //console.log(this.selectedNodeSearch);
+    if (this.selectedNodeSearch) {
+      const a = this.visNetworkService.getPositions(
+        this.visNetwork,
+        this.selectedNodeSearch.value
+      );
+      console.log(a[this.selectedNodeSearch.value]);
+      this.visNetworkService.moveTo(this.visNetwork, {
+        position: a[this.selectedNodeSearch.value],
+        animation: {
+          duration: 1000,
+          easingFunction: 'easeOutQuad',
+        },
+        scale: 1.5,
+      });
+    }
     this.toggleSearch();
   }
 }

@@ -1,8 +1,10 @@
 .lab-footer{
   width: 100% !important;
   background-color: #262626;
+  bottom: 0;
 }
 
 .about{
   color: white;
 }
+
