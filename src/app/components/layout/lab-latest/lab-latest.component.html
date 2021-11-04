@@ -3,10 +3,8 @@
     Ultimas Contribuciones
   </h1>
   <div class="container" fxLayout="row" fxLayoutAlign="space-around stretch" fxLayout.lt-sm="column" fxLayoutGap="4px" style="padding: 32px 40px 64px;">
-
-
-    <div *ngFor="let valeu of ['Podcast. Redarquías','Tweets sobre Covid-19 en Bolivia ','Datos abiertos ciudad de Buen Retiro']" class="tui-col_md-12" style="align-items: stretch;  padding: 2px">
-      <app-latest-card [text]="valeu"></app-latest-card>
+    <div *ngFor="let valeu of latest$ | async" class="tui-col_md-12" style="align-items: stretch;  padding: 2px">
+      <app-latest-card [text]="valeu.properties.name"></app-latest-card>
     </div>
 
   </div>
