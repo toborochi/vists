@@ -192,4 +192,8 @@ export class PageHomeComponent implements OnInit, OnDestroy {
   search(){
     this.searching=true;
   }
+
+  toggleSearch(){
+    this.searching = false;
+  }
 }
